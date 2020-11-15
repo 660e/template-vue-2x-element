@@ -11,7 +11,7 @@ Vue.use(I18n);
 function getLanguage() {
   const language = window.localStorage.getItem('language');
   return language ? language : 'zh';
-};
+}
 
 export default new I18n({
   locale: getLanguage(),

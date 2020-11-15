@@ -1,27 +1,28 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(Router);
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+import Layout from '@/layout';
 
-const router = new VueRouter({
-  routes
-})
+import demoRouter from './modules/demo.js';
 
-export default router
+// TODO 401 404
+export const constantRoutes = [{
+  path: '/',
+  redirect: '/demo'
+}, demoRouter];
+
+export const asyncRoutes = [{
+  path: '/demo',
+  component: Layout,
+  children: [{
+    path: 'permission',
+    component: () => import('@/views/demo/permission.vue')
+  }]
+}];
+
+export default new Router({
+  routes: constantRoutes,
+  scrollBehavior: () => ({ x: 0, y: 0 })
+});

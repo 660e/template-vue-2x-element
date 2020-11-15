@@ -7,4 +7,4 @@
  */
 export function toThousandFilter(num) {
   return num.toLocaleString();
-};
+}
