@@ -14,8 +14,11 @@ import Element from 'element-ui';
 Vue.use(Element, { size: 'small', i18n: (key, value) => i18n.t(key, value) });
 
 // echarts
-import 'echarts/lib/chart/line.js';
-import 'echarts/lib/component/polar.js';
+// import echarts from 'echarts';
+// Vue.prototype.$echarts = echarts;
+import 'echarts/lib/chart/pie.js';
+import 'echarts/lib/component/legend.js';
+import 'echarts/lib/component/tooltip.js';
 import VueEcharts from 'vue-echarts';
 Vue.component('v-chart', VueEcharts);
 
