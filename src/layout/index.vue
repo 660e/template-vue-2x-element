@@ -36,5 +36,10 @@ export default {
 }
 .el-menu {
   border: 0;
+  .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+  }
 }
 </style>
