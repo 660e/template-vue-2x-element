@@ -22,6 +22,10 @@ import 'echarts/lib/component/tooltip.js';
 import VueEcharts from 'vue-echarts';
 Vue.component('v-chart', VueEcharts);
 
+// ccc
+import CccTable from '@/components/ccc-table.vue';
+Vue.component('ccc-table', CccTable);
+
 // filters
 import * as filters from './filters';
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
