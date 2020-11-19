@@ -16,6 +16,9 @@ export default {
     path: 'filters',
     component: () => import('@/views/demo/filters.vue')
   }, {
+    path: 'form',
+    component: () => import('@/views/demo/form.vue')
+  }, {
     path: 'i18n',
     component: () => import('@/views/demo/i18n.vue')
   }, {
