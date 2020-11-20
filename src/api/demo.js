@@ -3,11 +3,9 @@ import mockjs from 'mockjs';
 
 const demoApi = {
 
-  getRandomuserData(results) {
+  getRandomuserData(results, page, seed) {
     return request.get('https://randomuser.me/api/', {
-      params: {
-        results
-      }
+      params: { results, page, seed }
     });
   },
 
