@@ -1,16 +1,16 @@
 <template>
   <el-form :model="form" :rules="rules" @validate="validate" ref="form" label-width="80px">
     <el-form-item label="手机号" prop="phone">
-      <el-input v-model="form.phone"></el-input>
+      <el-input v-model="form.phone" clearable></el-input>
     </el-form-item>
     <el-form-item label="密码" prop="password">
-      <el-input v-model="form.password"></el-input>
+      <el-input v-model="form.password" clearable></el-input>
     </el-form-item>
     <el-form-item label="确认密码" prop="verifyPassword">
-      <el-input v-model="form.verifyPassword"></el-input>
+      <el-input v-model="form.verifyPassword" clearable></el-input>
     </el-form-item>
     <el-form-item label="标签">
-      <el-input v-model="form.tag"></el-input>
+      <el-input v-model="form.tag" clearable></el-input>
     </el-form-item>
     <el-form-item>
       <el-button :disabled="invalid" @click="submit">提交</el-button>
@@ -79,14 +79,11 @@ export default {
 .el-form {
   width: 300px;
 }
-.el-form-item {
-  margin-bottom: 20px;
-  /deep/ .el-form-item__error {
-    width: 200px;
-    line-height: 32px;
-    padding: 0 0 0 10px;
-    top: 0;
-    left: 100%;
-  }
+.el-form-item /deep/ .el-form-item__error {
+  width: 200px;
+  line-height: 32px;
+  padding: 0 0 0 10px;
+  top: 0;
+  left: 100%;
 }
 </style>
