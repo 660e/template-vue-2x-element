@@ -6,7 +6,10 @@
       </el-menu>
     </el-aside>
     <el-main>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
     </el-main>
   </el-container>
 </template>
