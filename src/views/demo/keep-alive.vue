@@ -1,10 +1,7 @@
 <template>
   <el-form label-width="80px">
-    <el-form-item label="参数A">
-      <el-input v-model="form.a" clearable></el-input>
-    </el-form-item>
-    <el-form-item label="参数B">
-      <el-input v-model="form.b" clearable></el-input>
+    <el-form-item label="数据缓存">
+      <el-input v-model="input" clearable></el-input>
     </el-form-item>
   </el-form>
 </template>
@@ -13,10 +10,7 @@
 export default {
   data() {
     return {
-      form: {
-        a: '',
-        b: ''
-      }
+      input: ''
     };
   }
 };
