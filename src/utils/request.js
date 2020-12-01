@@ -19,11 +19,20 @@ service.interceptors.response.use(
     return response;
   },
   error => {
-    window.console.log(error.response);
-    Message({
-      message: error.response.data,
-      type: 'error'
-    });
+    switch (error.response.status) {
+      case 401:
+        Message.error(error.response.statusText);
+        break;
+      case 403:
+        Message.error(error.response.statusText);
+        break;
+      case 500:
+        Message.error(error.response.statusText);
+        break;
+      case 503:
+        Message.error(error.response.statusText);
+        break;
+    }
     return Promise.reject(error);
   }
 );
