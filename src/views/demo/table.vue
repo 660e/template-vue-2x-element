@@ -17,35 +17,50 @@ export default {
     this.options = {
       columns: [
         {
-          prop: 'name.first',
-          label: 'name'
+          prop: 'name',
+          label: 'name',
+          width: 200
         },
         {
           prop: 'gender',
-          label: 'gender'
+          label: 'gender',
+          width: 200
         },
         {
-          prop: 'dob.age',
-          label: 'age'
-        },
-        {
-          prop: 'location.country',
-          label: 'country'
+          prop: 'country',
+          label: 'country',
+          width: 200
         },
         {
           prop: 'phone',
-          label: 'phone'
+          label: 'phone',
+          width: 200
         },
         {
           prop: 'email',
           label: 'email'
+        },
+        {
+          prop: 'progress',
+          label: 'progress',
+          width: 200,
+          type: 'progress'
         }
       ]
     };
   },
   mounted() {
-    demoApi.getRandomuserData(5).then(response => {
-      this.tableData = response.data.results;
+    demoApi.getRandomuserData(10).then(response => {
+      this.tableData = response.data.results.map(e => {
+        return {
+          name: `${e.name.first} ${e.name.last}`,
+          gender: e.gender,
+          country: e.location.country,
+          phone: e.phone,
+          email: e.email,
+          progress: e.dob.age
+        };
+      });
     });
   }
 };
