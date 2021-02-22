@@ -23,7 +23,7 @@ export default {
     };
   },
   watch: {
-    '$route'(to) {
+    $route(to) {
       this.activeIndex = to.path;
     }
   }

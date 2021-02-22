@@ -11,7 +11,7 @@ export default {
     };
   },
   mounted() {
-    demoApi.getRandomuserData(1).then(response => this.results = response.data.results);
+    demoApi.getRandomuserData(1).then(response => (this.results = response.data.results));
   }
 };
 </script>

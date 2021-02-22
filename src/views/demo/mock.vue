@@ -16,10 +16,10 @@ export default {
   },
   methods: {
     getMockData1() {
-      demoApi.getMockData1().then(response => this.results = response);
+      demoApi.getMockData1().then(response => (this.results = response));
     },
     getMockData2() {
-      demoApi.getMockData2().then(response => this.results = response.data);
+      demoApi.getMockData2().then(response => (this.results = response.data));
     }
   }
 };

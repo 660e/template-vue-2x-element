@@ -8,19 +8,26 @@ import Layout from '@/layout';
 import demoRouter from './modules/demo.js';
 
 // TODO 401 404
-export const constantRoutes = [{
-  path: '/',
-  redirect: '/demo'
-}, demoRouter];
+export const constantRoutes = [
+  {
+    path: '/',
+    redirect: '/demo'
+  },
+  demoRouter
+];
 
-export const asyncRoutes = [{
-  path: '/demo',
-  component: Layout,
-  children: [{
-    path: 'permission',
-    component: () => import('@/views/demo/permission.vue')
-  }]
-}];
+export const asyncRoutes = [
+  {
+    path: '/demo',
+    component: Layout,
+    children: [
+      {
+        path: 'permission',
+        component: () => import('@/views/demo/permission.vue')
+      }
+    ]
+  }
+];
 
 export default new Router({
   routes: constantRoutes,

@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ n }} -> {{ n|toThousandFilter }}</h1>
+  <h1>{{ n }} -> {{ n | toThousandFilter }}</h1>
 </template>
 
 <script>

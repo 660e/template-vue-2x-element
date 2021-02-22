@@ -15,25 +15,32 @@ export default {
   },
   created() {
     this.options = {
-      columns: [{
-        prop: 'name.first',
-        label: 'name'
-      }, {
-        prop: 'gender',
-        label: 'gender'
-      }, {
-        prop: 'dob.age',
-        label: 'age'
-      }, {
-        prop: 'location.country',
-        label: 'country'
-      }, {
-        prop: 'phone',
-        label: 'phone'
-      }, {
-        prop: 'email',
-        label: 'email'
-      }]
+      columns: [
+        {
+          prop: 'name.first',
+          label: 'name'
+        },
+        {
+          prop: 'gender',
+          label: 'gender'
+        },
+        {
+          prop: 'dob.age',
+          label: 'age'
+        },
+        {
+          prop: 'location.country',
+          label: 'country'
+        },
+        {
+          prop: 'phone',
+          label: 'phone'
+        },
+        {
+          prop: 'email',
+          label: 'email'
+        }
+      ]
     };
   },
   mounted() {

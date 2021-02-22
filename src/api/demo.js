@@ -2,13 +2,11 @@ import request from '@/utils/request.js';
 import mockjs from 'mockjs';
 
 const demoApi = {
-
   getRandomuserData(results, page, seed) {
     return request.get('https://randomuser.me/api/', {
       params: { results, page, seed }
     });
   },
-
   getMockData1() {
     const response = mockjs.mock({
       'A|1-100': 1,
@@ -32,11 +30,9 @@ const demoApi = {
     });
     return new Promise(resolve => resolve(response));
   },
-
   getMockData2() {
     return request.get('/demo');
   }
-
 };
 
 export default demoApi;

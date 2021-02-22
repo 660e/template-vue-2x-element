@@ -1,5 +1,5 @@
 export default {
   demo: {
-    'hello': 'hello'
+    hello: 'hello'
   }
 };
