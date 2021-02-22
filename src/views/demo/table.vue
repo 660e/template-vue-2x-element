@@ -24,6 +24,20 @@ export default {
         {
           prop: 'gender',
           label: 'gender',
+          width: 200,
+          formatter: (row, column, cellValue) => {
+            switch (cellValue) {
+              case 'male':
+                return 1;
+              case 'female':
+                return 0;
+            }
+          }
+        },
+        {
+          type: 'progress',
+          prop: 'progress',
+          label: 'progress',
           width: 200
         },
         {
@@ -32,19 +46,13 @@ export default {
           width: 200
         },
         {
-          prop: 'phone',
-          label: 'phone',
+          prop: 'date',
+          label: 'date',
           width: 200
         },
         {
           prop: 'email',
           label: 'email'
-        },
-        {
-          prop: 'progress',
-          label: 'progress',
-          width: 200,
-          type: 'progress'
         }
       ]
     };
@@ -55,10 +63,10 @@ export default {
         return {
           name: `${e.name.first} ${e.name.last}`,
           gender: e.gender,
+          progress: e.dob.age,
           country: e.location.country,
-          phone: e.phone,
-          email: e.email,
-          progress: e.dob.age
+          date: e.dob.date.slice(0, 19).replace(/T/, ' '),
+          email: e.email
         };
       });
     });

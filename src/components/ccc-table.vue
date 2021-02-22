@@ -2,8 +2,16 @@
   <div class="ccc-table">
     <el-table :data="sources" border stripe>
       <template v-for="c in this.options.columns">
-        <el-table-column :key="c.prop" :label="c.label" :width="c.width" :resizable="false" v-if="!c.type" :prop="c.prop"></el-table-column>
-        <el-table-column :key="c.prop" :label="c.label" :width="c.width" :resizable="false" v-if="c.type === 'progress'">
+        <el-table-column
+          v-if="!c.type"
+          :key="c.prop"
+          :prop="c.prop"
+          :label="c.label"
+          :width="c.width"
+          :formatter="c.formatter"
+          :resizable="false"
+        ></el-table-column>
+        <el-table-column v-if="c.type === 'progress'" :key="c.prop" :label="c.label" :width="c.width" :resizable="false">
           <template slot-scope="scope">
             <el-progress :percentage="scope.row[c.prop]"></el-progress>
           </template>
