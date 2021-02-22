@@ -1,7 +1,8 @@
 <template>
   <div class="ccc-table">
     <el-table :data="sources" border stripe>
-      <template v-for="c in this.options.columns">
+      <!-- columns -->
+      <template v-for="c in options.columns">
         <el-table-column
           v-if="!c.type"
           :key="c.prop"
@@ -17,6 +18,12 @@
           </template>
         </el-table-column>
       </template>
+      <!-- handle -->
+      <el-table-column v-if="options.handle" :label="options.handle.label" :width="options.handle.width" :resizable="false">
+        <template slot-scope="scope">
+          <el-button type="text" v-for="b in options.handle.buttons" v-text="b.text" :key="b.text" @click="b.click(scope.row)"></el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>

@@ -54,7 +54,25 @@ export default {
           prop: 'email',
           label: 'email'
         }
-      ]
+      ],
+      handle: {
+        label: 'handle',
+        width: 200,
+        buttons: [
+          {
+            text: 'Edit',
+            click: row => {
+              console.log(row);
+            }
+          },
+          {
+            text: 'Delete',
+            click: row => {
+              console.log(row);
+            }
+          }
+        ]
+      }
     };
   },
   mounted() {
