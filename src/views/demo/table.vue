@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ccc-table :options="options" :sources="tableData"></ccc-table>
+    <ccc-table :options="options" :sources="tableData" @change="onChange"></ccc-table>
   </div>
 </template>
 
@@ -22,8 +22,8 @@ export default {
           width: 200
         },
         {
-          prop: 'gender',
-          label: 'gender',
+          prop: 'formatter',
+          label: 'formatter',
           width: 200,
           formatter: (row, column, cellValue) => {
             switch (cellValue) {
@@ -60,34 +60,50 @@ export default {
         width: 200,
         buttons: [
           {
-            text: 'Edit',
+            text: 'View',
             click: row => {
+              console.log('View');
               console.log(row);
             }
           },
           {
             text: 'Delete',
             click: row => {
+              console.log('Delete');
               console.log(row);
             }
           }
         ]
+      },
+      pagination: {
+        total: 0,
+        page: 1
       }
     };
   },
   mounted() {
-    demoApi.getRandomuserData(10).then(response => {
-      this.tableData = response.data.results.map(e => {
-        return {
-          name: `${e.name.first} ${e.name.last}`,
-          gender: e.gender,
-          progress: e.dob.age,
-          country: e.location.country,
-          date: e.dob.date.slice(0, 19).replace(/T/, ' '),
-          email: e.email
-        };
+    this.getRandomuserData(1);
+  },
+  methods: {
+    getRandomuserData(page) {
+      demoApi.getRandomuserData(10, page, 'ccc').then(response => {
+        this.tableData = response.data.results.map(e => {
+          return {
+            name: `${e.name.first} ${e.name.last}`,
+            formatter: e.gender,
+            progress: e.dob.age,
+            country: e.location.country,
+            date: e.dob.date.slice(0, 19).replace(/T/, ' '),
+            email: e.email
+          };
+        });
+        this.options.pagination.total = 50;
+        this.options.pagination.page = response.data.info.page;
       });
-    });
+    },
+    onChange(page) {
+      this.getRandomuserData(page);
+    }
   }
 };
 </script>

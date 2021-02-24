@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="150px">
+    <el-aside width="200px">
       <el-menu background-color="#545c64" text-color="#fff" active-text-color="#0cf" :default-active="activeIndex" router>
         <el-menu-item v-for="m in menus" :key="m" :index="`/demo/${m}`">{{ m }}</el-menu-item>
       </el-menu>
