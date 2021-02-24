@@ -1,12 +1,12 @@
 <template>
-  <v-chart :options="options"></v-chart>
+  <v-chart :option="option"></v-chart>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      options: {
+      option: {
         tooltip: {
           trigger: 'item',
           formatter: '{c}'

@@ -14,12 +14,12 @@ import Element from 'element-ui';
 Vue.use(Element, { size: 'small', i18n: (key, value) => i18n.t(key, value) });
 
 // echarts
-// import echarts from 'echarts';
-// Vue.prototype.$echarts = echarts;
-import 'echarts/lib/chart/pie.js';
-import 'echarts/lib/component/legend.js';
-import 'echarts/lib/component/tooltip.js';
+import * as echarts from 'echarts/core';
+import { PieChart } from 'echarts/charts';
+import { LegendComponent, TooltipComponent } from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
 import VueEcharts from 'vue-echarts';
+echarts.use([PieChart, LegendComponent, TooltipComponent, CanvasRenderer]);
 Vue.component('v-chart', VueEcharts);
 
 // ccc
