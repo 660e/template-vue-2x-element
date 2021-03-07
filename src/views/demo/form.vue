@@ -1,16 +1,16 @@
 <template>
-  <el-form :model="form" :rules="rules" @validate="validate" ref="form" label-width="80px">
+  <el-form :model="forms" :rules="rules" @validate="validate" ref="forms" label-width="80px">
     <el-form-item label="手机号" prop="phone">
-      <el-input v-model="form.phone" clearable></el-input>
+      <el-input v-model="forms.phone" clearable></el-input>
     </el-form-item>
     <el-form-item label="密码" prop="password">
-      <el-input v-model="form.password" clearable></el-input>
+      <el-input v-model="forms.password" clearable></el-input>
     </el-form-item>
     <el-form-item label="确认密码" prop="verifyPassword">
-      <el-input v-model="form.verifyPassword" clearable></el-input>
+      <el-input v-model="forms.verifyPassword" clearable></el-input>
     </el-form-item>
     <el-form-item label="标签">
-      <el-input v-model="form.tag" clearable></el-input>
+      <el-input v-model="forms.tag" clearable></el-input>
     </el-form-item>
     <el-form-item>
       <el-button :disabled="invalid" @click="submit">提交</el-button>
@@ -22,14 +22,14 @@
 export default {
   data() {
     const validatePassword1 = (rule, value, callback) => {
-      if (this.form.verifyPassword !== '') {
-        this.$refs.form.validateField('verifyPassword');
+      if (this.forms.verifyPassword !== '') {
+        this.$refs.forms.validateField('verifyPassword');
         callback();
       }
     };
     const validatePassword2 = (rule, value, callback) => {
-      if (this.form.password !== '') {
-        if (value !== this.form.password) {
+      if (this.forms.password !== '') {
+        if (value !== this.forms.password) {
           callback(new Error('密码不一致'));
         } else {
           callback();
@@ -37,7 +37,7 @@ export default {
       }
     };
     return {
-      form: {
+      forms: {
         phone: '',
         password: '',
         verifyPassword: '',
@@ -62,14 +62,14 @@ export default {
   },
   methods: {
     submit() {
-      this.$refs.form.validate(valid => {
+      this.$refs.forms.validate(valid => {
         if (valid) {
           window.console.log('submit');
         }
       });
     },
     validate() {
-      this.invalid = this.$refs.form.fields.some(e => e.validateState !== 'success');
+      this.invalid = this.$refs.forms.fields.some(e => e.validateState !== 'success');
     }
   }
 };
