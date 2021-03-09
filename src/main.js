@@ -34,9 +34,4 @@ Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));
 import './styles/index.less';
 Vue.config.productionTip = false;
 
-new Vue({
-  i18n,
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app');
+new Vue({ i18n, router, store, render: h => h(App) }).$mount('#app');
