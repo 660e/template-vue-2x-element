@@ -6,10 +6,12 @@
       </el-menu>
     </el-aside>
     <el-main>
-      <keep-alive>
-        <router-view v-if="$route.meta.keepAlive"></router-view>
-      </keep-alive>
-      <router-view v-if="!$route.meta.keepAlive"></router-view>
+      <transition name="layout">
+        <keep-alive v-if="$route.meta.keepAlive">
+          <router-view></router-view>
+        </keep-alive>
+        <router-view v-else></router-view>
+      </transition>
     </el-main>
   </el-container>
 </template>
@@ -44,5 +46,11 @@ export default {
     line-height: 40px;
     text-align: right;
   }
+}
+.layout-enter-active {
+  transition: opacity 0.5s ease;
+}
+.layout-enter {
+  opacity: 0;
 }
 </style>
