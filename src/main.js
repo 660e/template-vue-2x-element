@@ -18,9 +18,8 @@ import * as echarts from 'echarts/core';
 import { PieChart } from 'echarts/charts';
 import { LegendComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
-import VueEcharts from 'vue-echarts';
 echarts.use([PieChart, LegendComponent, TooltipComponent, CanvasRenderer]);
-Vue.component('v-chart', VueEcharts);
+Vue.prototype.$echarts = echarts;
 
 // ccc
 import CccTable from '@/components/ccc-table.vue';
